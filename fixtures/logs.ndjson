@@ -1,0 +1,4 @@
+[
+  { "id": "001", "name": "Acme Corp", "address": { "city": "Pune", "pin": "411001" }, "orders": [ { "no": "A-1", "amount": 1200 } ] },
+  { "id": "002", "name": "Globex",    "address": { "city": "Mumbai", "pin": "400001" }, "orders": [ { "no": "B-7", "amount": 990 } ] }
+]
