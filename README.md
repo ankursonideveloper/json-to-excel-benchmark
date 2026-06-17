@@ -26,7 +26,7 @@ cell against the source:
 
 **Full comparison with results** (two converters that rank for "json to excel
 online", anonymized, tested 11 June 2026):
-👉 [Best JSON to Excel converter — 2026 comparison](https://www.jsontoexcel.in/guides/best-json-to-excel-converter)
+👉 [Best JSON to Excel converter - 2026 comparison](https://www.jsontoexcel.in/guides/best-json-to-excel-converter)
 
 ## Other fixtures
 
@@ -44,3 +44,16 @@ online", anonymized, tested 11 June 2026):
 import json, pandas as pd
 data = json.load(open("fixtures/nested-customers.json"))
 pd.json_normalize(data).to_excel("out.xlsx", index=False)
+Or no code — drop any file into the free, browser-based
+JSON to Excel converter and download a clean .xlsx.
+
+Guides
+Flatten nested JSON into columns
+Convert NDJSON / JSON Lines to Excel
+Turn an API response into a spreadsheet
+GST JSON to Excel (GSTR-1 / 2A / 2B)
+License
+These test files are released under CC0-1.0 (public domain) — use them in
+your own tests freely.
+
+Maintained by the team behind jsontoexcel.in. Disclosure: this repo links to our own free tool.
