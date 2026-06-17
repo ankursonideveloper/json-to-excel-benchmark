@@ -43,7 +43,7 @@ online", anonymized, tested 11 June 2026):
 ```python
 import json, pandas as pd
 data = json.load(open("fixtures/nested-customers.json"))
-pd.json_normalize(data).to_excel("out.xlsx", index=False)
+pd.json_normalize(data).to_excel("out.xlsx", index=False)```
 Or no code — drop any file into the free, browser-based
 JSON to Excel converter and download a clean .xlsx.
 
