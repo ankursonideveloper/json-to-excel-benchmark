@@ -1,2 +1,46 @@
-# json-to-excel-benchmark
-Edge-case JSON test files for benchmarking JSON-to-Excel / CSV converters: 64-bit IDs, leading zeros, formula injection, dates, nested objects, NDJSON, and GST returns.
+# JSON to Excel Benchmark - Files That Break Converters
+
+> A small set of JSON test files for checking whether a JSON-to-Excel (or CSV)
+> converter preserves your data **exactly**: 64-bit IDs, leading-zero IDs,
+> formula injection, dates, nested objects, NDJSON, and GST returns.
+
+Most converters work fine on tidy sample data, then silently corrupt the real
+thing - a 19-digit ID comes back with its last digits replaced by zeros, an
+account number loses its leading zero, a date reformats. The file still opens
+and still looks correct, which is exactly what makes it dangerous. These
+fixtures pack those cases into small files so you can test any tool in seconds.
+
+## The core test: silent corruption
+
+[`fixtures/silent-corruption.json`](fixtures/silent-corruption.json) packs the
+tricky cases into one tiny file. Convert it, open the result, and check each
+cell against the source:
+
+| Test | Pass means |
+|------|-----------|
+| Large numbers / 64-bit IDs | every digit preserved — no scientific notation, no `...3456` → `...3400` |
+| Leading-zero IDs | `007890` keeps its leading zeros |
+| Formula-injection safety | `=1+1` stays literal text, not evaluated |
+| Numeric usability | `99.5` stays a number you can sum and sort, not text |
+| Dates | `2026-03-31` unchanged — no timezone shift, no reformatting |
+
+**Full comparison with results** (two converters that rank for "json to excel
+online", anonymized, tested 11 June 2026):
+👉 [Best JSON to Excel converter — 2026 comparison](https://www.jsontoexcel.in/guides/best-json-to-excel-converter)
+
+## Other fixtures
+
+| File | Shape | What to check |
+|------|-------|---------------|
+| [`nested-customers.json`](fixtures/nested-customers.json) | nested objects + arrays | `address.city` becomes its own column |
+| [`logs.ndjson`](fixtures/logs.ndjson) | newline-delimited JSON | one object per line → one row each |
+| [`api-response.json`](fixtures/api-response.json) | `{ data: [...], meta: {...} }` | the `data` array is detected automatically |
+| [`gstr1-sample.json`](fixtures/gstr1-sample.json) | GST GSTR-1 sections | one sheet per section, one row per invoice |
+
+## How to convert these
+
+**Python (pandas):**
+```python
+import json, pandas as pd
+data = json.load(open("fixtures/nested-customers.json"))
+pd.json_normalize(data).to_excel("out.xlsx", index=False)
