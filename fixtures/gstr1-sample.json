@@ -1,0 +1,8 @@
+{
+  "gstin": "27AAAAA0000A1Z5",
+  "fp": "082026",
+  "b2b": [
+    { "ctin": "29BBBBB1111B1Z6", "inv": [ { "inum": "INV-001", "idt": "05-08-2026", "val": 12000, "itms": [ { "num": 1, "itm_det": { "txval": 10000, "rt": 18, "iamt": 1800 } } ] } ] }
+  ],
+  "b2cs": [ { "sply_ty": "INTRA", "txval": 50000, "rt": 18, "camt": 4500, "samt": 4500, "pos": "27" } ]
+}
