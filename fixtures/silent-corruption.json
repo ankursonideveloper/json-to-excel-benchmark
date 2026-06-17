@@ -1,0 +1,8 @@
+[
+  { "label": "unquoted 64-bit ID", "value": 1099511627776123456 },
+  { "label": "2^53 + 1",           "value": 9007199254740993 },
+  { "label": "leading-zero ID",    "value": "007890" },
+  { "label": "formula text",       "value": "=1+1" },
+  { "label": "price",              "value": 99.5 },
+  { "label": "date",               "value": "2026-03-31" }
+]
