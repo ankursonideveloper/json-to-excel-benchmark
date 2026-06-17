@@ -1,0 +1,1 @@
+{ "status": "ok", "data": [ { "sku": "X1", "price": 49 }, { "sku": "X2", "price": 99 } ], "meta": { "page": 1 } }
