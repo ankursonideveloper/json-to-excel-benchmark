@@ -56,4 +56,5 @@ License
 These test files are released under CC0-1.0 (public domain) — use them in
 your own tests freely.
 
-Maintained by the team behind jsontoexcel.in. Disclosure: this repo links to our own free tool.
+*Maintained by the team behind [jsontoexcel.in](https://www.jsontoexcel.in/). Disclosure: this repo links to our own free tool.*
+
